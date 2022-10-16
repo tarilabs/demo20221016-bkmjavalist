@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_A5509FE4-AC68-4157-87E8-3E38E7EAE003" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_E1C0EB49-844C-43E4-AFB4-A6F715E312D8" name="sumwithjava" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_A5509FE4-AC68-4157-87E8-3E38E7EAE003">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_591D7B47-60DE-4E85-B1D6-3DE8662F841A" name="tListNumbers" isCollection="true">
+    <dmn:typeRef>number</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_DC59D8D0-D5B1-49D8-9BAA-3090C8931023" name="my numbers">
+    <dmn:extensionElements/>
+    <dmn:variable id="_D23A02FA-C17F-46A9-B354-807010F0B9A9" name="my numbers" typeRef="tListNumbers"/>
+  </dmn:inputData>
+  <dmn:decision id="_0C158D59-AE8E-47A9-AA99-0C52DCB8946B" name="total sum">
+    <dmn:extensionElements/>
+    <dmn:variable id="_BF7135AB-26AB-4627-821E-64032F093E6C" name="total sum" typeRef="number"/>
+    <dmn:informationRequirement id="_5DDAA18E-C79C-453E-82AA-73F167F14CD5">
+      <dmn:requiredInput href="#_DC59D8D0-D5B1-49D8-9BAA-3090C8931023"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_346BF7A9-9DA6-488F-A9F9-4764E414F6E8">
+      <dmn:requiredKnowledge href="#_2CB6EE75-32AD-4F68-BF65-41840D64E653"/>
+    </dmn:knowledgeRequirement>
+    <dmn:literalExpression id="_4F10F13C-129A-4313-8E41-5063AFBD242D">
+      <dmn:text>java util(my numbers)</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_2CB6EE75-32AD-4F68-BF65-41840D64E653" name="java util">
+    <dmn:extensionElements/>
+    <dmn:variable id="_540547C2-F251-4A20-81D2-D792BAE03A38" name="java util" typeRef="number"/>
+    <dmn:encapsulatedLogic id="_C831CCD0-6E24-4409-AD83-9EC8A06CD796" kind="Java">
+      <dmn:formalParameter id="_3C913C40-BED8-4171-BA99-F44E37FA3532" name="pNumbers" typeRef="tListNumbers"/>
+      <dmn:context id="_C19DA62A-F5F5-4A10-B1FA-020741CCB96A">
+        <dmn:contextEntry>
+          <dmn:variable id="_89D08FCA-A6C9-4128-BA25-CAF7E7ADD01E" name="class" typeRef="string"/>
+          <dmn:literalExpression id="_DDE6AA53-491F-4FE8-A6C7-A62674A4981C">
+            <dmn:text>org.acme.demo20221016.bkmjavalist.JavaUtils</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+        <dmn:contextEntry>
+          <dmn:variable id="_36D7147C-B5BD-4F6F-B3C4-7A70D08076BB" name="method signature" typeRef="string"/>
+          <dmn:literalExpression id="_195038B4-DBF4-4F75-A060-7B2EBE004F81">
+            <dmn:text>sum(java.util.List)</dmn:text>
+          </dmn:literalExpression>
+        </dmn:contextEntry>
+      </dmn:context>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_A3A8920A-67A3-4DF9-BA72-6E30155F145D" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_4F10F13C-129A-4313-8E41-5063AFBD242D">
+            <kie:width>300</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C19DA62A-F5F5-4A10-B1FA-020741CCB96A">
+            <kie:width>50</kie:width>
+            <kie:width>167</kie:width>
+            <kie:width>362</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DDE6AA53-491F-4FE8-A6C7-A62674A4981C">
+            <kie:width>362</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_195038B4-DBF4-4F75-A060-7B2EBE004F81">
+            <kie:width>362</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C831CCD0-6E24-4409-AD83-9EC8A06CD796">
+            <kie:width>50</kie:width>
+            <kie:width>599</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_DC59D8D0-D5B1-49D8-9BAA-3090C8931023" dmnElementRef="_DC59D8D0-D5B1-49D8-9BAA-3090C8931023" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="379" y="300" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_0C158D59-AE8E-47A9-AA99-0C52DCB8946B" dmnElementRef="_0C158D59-AE8E-47A9-AA99-0C52DCB8946B" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="596" y="300" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_2CB6EE75-32AD-4F68-BF65-41840D64E653" dmnElementRef="_2CB6EE75-32AD-4F68-BF65-41840D64E653" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="606" y="425" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_5DDAA18E-C79C-453E-82AA-73F167F14CD5-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_5DDAA18E-C79C-453E-82AA-73F167F14CD5">
+        <di:waypoint x="429" y="300"/>
+        <di:waypoint x="646" y="350"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_346BF7A9-9DA6-488F-A9F9-4764E414F6E8" dmnElementRef="_346BF7A9-9DA6-488F-A9F9-4764E414F6E8">
+        <di:waypoint x="656" y="450"/>
+        <di:waypoint x="646" y="325"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
